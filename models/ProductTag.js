@@ -16,7 +16,6 @@ ProductTag.init(
     product_id: {
       type: DataTypes.STRING,
       references: {
-        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
         model: 'product',
         key: 'id',
       },
@@ -24,35 +23,10 @@ ProductTag.init(
     tag_id: {
       type: DataTypes.STRING,
       references: {
-        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
         model: 'tag',
         key: 'id',
       }
     }
-    
-    /*
-    `id`
-
-    * Integer.
-
-    * Doesn't allow null values.
-
-    * Set as primary key.
-
-    * Uses auto increment.
-
-  * `product_id`
-
-    * Integer.
-
-    * References the `Product` model's `id`.
-
-  * `tag_id`
-
-    * Integer.
-
-    * References the `Tag` model's `id`.
-    */
   },
   {
     sequelize,
