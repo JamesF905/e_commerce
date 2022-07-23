@@ -17,15 +17,20 @@ Product.init(
       allowNull: false
     },
     product_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+      validate: {
+        isDecimal: true
+      }
+    },
+    stock: {
       type: DataTypes.STRING
     },
-    product_name: {
-      type: DataTypes.STRING
-    },
-    product_name: {
-      type: DataTypes.STRING
-    },
-    product_name: {
+    category_id: {
       type: DataTypes.STRING
     }
   },
@@ -37,29 +42,10 @@ Product.init(
     modelName: 'tag',
   }
     /*
-    `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
+    
 
-  * `product_name`
   
-    * String.
   
-    * Doesn't allow null values.
-
-  * `price`
-  
-    * Decimal.
-  
-    * Doesn't allow null values.
-  
-    * Validates that the value is a decimal.
 
   * `stock`
   
