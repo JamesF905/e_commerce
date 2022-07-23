@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  Tag.findByPk(req.params.id, {include: [{ model: Tag, through: ProductTag}, { model: Category}]})
+  Product.findByPk(req.params.id, {include: [{ model: Tag, through: ProductTag}, { model: Category}]})
       .then((product) =>
         !product
           ? res.status(404).json({ message: 'No product with that ID' })
@@ -101,7 +101,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
-  Tag.destroy({where: {id: req.params.id}})
+  Product.destroy({where: {id: req.params.id}})
     .then((product) =>
       !product
         ? res.status(404).json({ message: 'No product with this id!' })
