@@ -6,7 +6,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all tags
   Tag.find()
-      .then((products) => res.json(products))
+      .then((tag) => res.json(tag))
       .catch((err) => res.status(500).json(err));
   // be sure to include its associated Product data
 });
@@ -14,10 +14,24 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
+  Tag.findOne({ _id: req.params.id })
+      .select('-__v')
+      .then((tag) =>
+        !tag
+          ? res.status(404).json({ message: 'No tag with that ID' })
+          : res.json(tag)
+      )
+      .catch((err) => res.status(500).json(err));
 });
 
 router.post('/', (req, res) => {
   // create a new tag
+  Tag.create(req.body)
+      .then((tag) => res.json(tag))
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
 });
 
 router.put('/:id', (req, res) => {
