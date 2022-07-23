@@ -7,6 +7,29 @@ class ProductTag extends Model {}
 ProductTag.init(
   {
     // define columns
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false
+    },
+    product_id: {
+      type: DataTypes.STRING,
+      references: {
+        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
+        model: 'product',
+        key: 'id',
+      },
+    },
+    tag_id: {
+      type: DataTypes.STRING,
+      references: {
+        // This references the `reader` model, which we set in `Reader.js` as its `modelName` property
+        model: 'tag',
+        key: 'id',
+      }
+    }
+    
     /*
     `id`
 
