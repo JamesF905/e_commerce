@@ -28,34 +28,24 @@ Product.init(
       }
     },
     stock: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 10,
+      validate: {
+        isNumeric
+      }
     },
     category_id: {
-      type: DataTypes.STRING
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
+        key: 'id',
+      },
     }
   },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'tag',
-  }
     /*
     
 
-  
-  
-
-  * `stock`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set a default value of `10`.
-  
-    * Validates that the value is numeric.
 
   * `category_id`
   
@@ -63,7 +53,7 @@ Product.init(
   
     * References the `Category` model's `id`.
     */
-  },
+  
   {
     sequelize,
     timestamps: false,
