@@ -7,7 +7,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
-  Product.findALL({include: [{ model: Tag, through: ProductTag}, { model: Category}]})
+  Product.findAll({include: [{ model: Tag, through: ProductTag}, { model: Category}]})
   .then((product) => res.json(product))
   .catch((err) => res.status(500).json(err));
 });
