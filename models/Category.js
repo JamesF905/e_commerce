@@ -16,39 +16,7 @@ Category.init(
     title: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    author: {
-      type: DataTypes.STRING
-    },
-    isbn: {
-      type: DataTypes.STRING
-    },
-    pages: {
-      type: DataTypes.INTEGER
-    },
-    edition: {
-      type: DataTypes.INTEGER
-    },
-    is_paperback: {
-      type: DataTypes.BOOLEAN
     }
-    /*
-    `id`
-
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
-  * `category_name`
-  
-    * String.
-  
-    * Doesn't allow null values.
-    */
   },
   {
     sequelize,
