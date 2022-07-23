@@ -16,21 +16,6 @@ Tag.init(
     tag_name: {
       type: DataTypes.STRING
     }
-    /*
-     `id`
-  
-    * Integer.
-  
-    * Doesn't allow null values.
-  
-    * Set as primary key.
-  
-    * Uses auto increment.
-
-  * `tag_name`
-  
-    * String.
-    */
   },
   {
     sequelize,
