@@ -7,8 +7,8 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
-  Tag.findALL({include: [{ model: Product, through: ProductTag}]})
-  .then((tag) => res.json(tag))
+  Product.findALL({include: [{ model: Tag, through: ProductTag}, { model: Category}]})
+  .then((product) => res.json(product))
   .catch((err) => res.status(500).json(err));
 });
 
@@ -16,11 +16,11 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  Tag.findByPk(req.params.id, {include: [{ model: Product, through: ProductTag}]})
-      .then((tag) =>
-        !tag
-          ? res.status(404).json({ message: 'No tag with that ID' })
-          : res.json(tag)
+  Tag.findByPk(req.params.id, {include: [{ model: Tag, through: ProductTag}, { model: Category}]})
+      .then((product) =>
+        !product
+          ? res.status(404).json({ message: 'No product with that ID' })
+          : res.json(product)
       )
       .catch((err) => res.status(500).json(err));
 });
