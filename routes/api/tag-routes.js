@@ -30,7 +30,6 @@ router.post('/', (req, res) => {
       res.status(200).json(tag);
     })
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 });
@@ -48,23 +47,13 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
-    try {
-      const locationData = await Tag.destroy({
-        where: {
-          id: req.params.id
-        }
-      });
-  
-      if (!locationData) {
-        res.status(404).json({ message: 'No location found with this id!' });
-        return;
-      }
-  
-      res.status(200).json(locationData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  
+    Tag.destroy({where: {id: req.params.id}})
+    .then((tag) =>
+      !tag
+        ? res.status(404).json({ message: 'No tag with this id!' })
+        : res.json(tag)
+    )
+    .catch((err) => res.status(500).json(err));
 });
 
 module.exports = router;
