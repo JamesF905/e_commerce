@@ -42,18 +42,7 @@ Product.init(
         key: 'id',
       },
     }
-  },
-    /*
-    
-
-
-  * `category_id`
-  
-    * Integer.
-  
-    * References the `Category` model's `id`.
-    */
-  
+  },  
   {
     sequelize,
     timestamps: false,
