@@ -79,7 +79,6 @@ THEN I am able to successfully create, update, and delete data in my database
 * [Git Bash](https://git-scm.com/)
 * [node.js](https://nodejs.org/en/)
 * [insomnia](https://insomnia.rest/)
-* [dotenv](https://www.npmjs.com/package/dotenv)
 * [sequelize](https://sequelize.org/)
 * [npm mysql2](https://www.npmjs.com/package/mysql2)
 * [npm dotenv](https://www.npmjs.com/package/dotenv)
