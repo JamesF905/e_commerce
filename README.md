@@ -15,7 +15,7 @@ A refactoring of an E-Commerce application<br><br>By: <a href="https://github.co
 ### Walkthrough Video Link
 
 <p align="center">
-    <a href=""><strong></strong></a>
+    <a href="https://drive.google.com/file/d/1qyD3J-7_5o8_TAtI_zTxV4d-E7PTEnfx/view"><strong>https://drive.google.com/file/d/1qyD3J-7_5o8_TAtI_zTxV4d-E7PTEnfx/view</strong></a>
 </p>
 
 ### Repo Link
@@ -78,9 +78,10 @@ THEN I am able to successfully create, update, and delete data in my database
 * [Git Hub](https://github.com/)
 * [Git Bash](https://git-scm.com/)
 * [node.js](https://nodejs.org/en/)
-* [npm inquirer](https://www.npmjs.com/package/inquirer)
+* [insomnia](https://insomnia.rest/)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [sequelize](https://sequelize.org/)
 * [npm mysql2](https://www.npmjs.com/package/mysql2)
-* [npm console.table](https://www.npmjs.com/package/console.table)
 * [npm dotenv](https://www.npmjs.com/package/dotenv)
 
 <p align="center"><a href="#contents">(back to top)</a></p>
@@ -92,15 +93,23 @@ THEN I am able to successfully create, update, and delete data in my database
 
 2) Install MySql server
 
-3) Install Node.js
+3) Install Insomnia
 
 4) Clone this repo
 
 5) Run GitBash from your cloned folder
 
-6) type "npm i" in GitBash
+6) In bash, type in the command ``mysql -u root -p``, then enter your database's password
 
-7) type "npm start" to run 
+7) Once connected type in the command ``source db/schema.sql`` to create the database
+
+6) Type ``npm i`` in GitBash to install dependencies
+
+7) Type ``npm run seed`` to build the database
+
+8) Type ``npm start`` to run the application
+
+9) Use insomnia to play with the routes
 
 <p align="center"><a href="#contents">(back to top)</a></p>
 <br/><br/>
@@ -128,4 +137,4 @@ James Fidlin is a Junior Full Stack Web Developer, studying at the University of
 [Github-shield]: https://img.shields.io/badge/Github-white?style=for-the-badge&logo=Github&logoColor=222
 [Github-url]: https://github.com/JamesF905
 
-[product-screenshot]: assets/images/Project_Screenshot.gif
+[product-screenshot]: assets/images/Project_Screenshot.png
